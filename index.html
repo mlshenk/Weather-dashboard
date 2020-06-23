@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header field -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center font-weight-bold">Weather Dashboard</h1>
+        </div>
+    </div>
+    <!--Recent searches-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <h2>Search City:</h2>
+                <nav class="navbar navbar-light bg-light">
+                    <div class="form-inline">
+                        <input class="form-control mr-sm-2" id="citySearch" placeholder="Enter City Name Here"
+                            type="search" aria-label="Search">
+                        <button class="btn btn-outline-danger my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
+                    </div>
+                    <!-- List formatting -->
+                    <div class="card d-flex p-2" style="width: 18rem;">
+                        <ul id="cityList" class="list-group list-group-flush">
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-9">
+                <div id="currentForecast" class="row">
+                    <div class="card">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body">
+                            <!--will need to create class/id to link searched city ino h5, info into each of the subsequent rows-->
+                            <!--<h2 class="card-title">Current City</h2>-->
+                            <div class="city"></div>
+                            <br>
+                            <div class="temp"></div>
+                            <div class="high"></div>
+                            <div class="low"></div>
+                            <br>
+                            <div class="wind"></div>
+                            <br>
+                            <div class="humidity"></div>
+                            <br>
+                            <div class="uvi"></div>
+                            <br>
+                            <div class="QNH"></div>
+                            <br>
+                            <div class="currentConditions"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div id="futureForecast" class="row">
+                    <h2>5-Day Forecast -- Your weekend always in view!</h2>
+                </div>
+                <div id="forecastData" class="-forecastRow">
+                    <div class="card-deck pr-2">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="day1"></h5>
+                                <img id="day1Img" src="" alt="">
+                                <p id="day1temp" class="card-text"></p>
+                                <p id="day1-humidity" class="card-text"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="day2"></h5>
+                                <img id="day2Img" src="" alt="">
+                                <p id="day2temp" class="card-text"></p>
+                                <p id="day2-humidity" class="card-text"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="day3"></h5>
+                                <img id="day3Img" src="" alt="">
+                                <p id="day3temp" class="card-text"></p>
+                                <p id="day3-humidity" class="card-text"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="day4"></h5>
+                                <img id="day4Img" src="" alt="">
+                                <p id="day4temp" class="card-text"></p>
+                                <p id="day4-humidity" class="card-text"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="day5"></h5>
+                                <img id="day5Img" src="" alt="">
+                                <p id="day5temp" class="card-text"></p>
+                                <p id="day5-humidity" class="card-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
