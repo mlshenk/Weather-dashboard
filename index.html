@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Weather Dashboard</title>
+    <title>HW #6: Weather Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -11,13 +12,11 @@
 </head>
 
 <body>
-  <!-- Header field -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4 text-center font-weight-bold">Weather Dashboard</h1>
         </div>
     </div>
-    <!--Recent searches-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-3">
@@ -28,9 +27,8 @@
                             type="search" aria-label="Search">
                         <button class="btn btn-outline-danger my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
                     </div>
-                    <!-- List formatting -->
                     <div class="card d-flex p-2" style="width: 18rem;">
-                        <ul id="cityList" class="list-group list-group-flush">
+                        <ul id="cityList" class="list-group ">
                             <li class="list-group-item"></li>
                             <li class="list-group-item"></li>
                             <li class="list-group-item"></li>
@@ -50,8 +48,6 @@
 
                         </div>
                         <div class="card-body">
-                            <!--will need to create class/id to link searched city ino h5, info into each of the subsequent rows-->
-                            <!--<h2 class="card-title">Current City</h2>-->
                             <div class="city"></div>
                             <br>
                             <div class="temp"></div>
@@ -65,6 +61,7 @@
                             <div class="uvi"></div>
                             <br>
                             <div class="QNH"></div>
+                            <div class="pressure-inches"></div>
                             <br>
                             <div class="currentConditions"></div>
 
@@ -127,4 +124,5 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
