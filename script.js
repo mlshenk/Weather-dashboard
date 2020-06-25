@@ -1,16 +1,17 @@
 $(document).ready(function () {
 
-    var cityList = JSON.parse(window.localStorage.getItem("cityList")) || [];
     console.log("localstorage list" + cityList);
-    if (cityList.length > 0) {
-        weatherInfo(cityList[cityList.length - 1]);
-    }
-    else {
-        weatherInfo("Seattle");
-    }
+  var cityArray = JSON.parse(localStorage.getItem("cityList")) || [];
 
+
+//Populate page when opened
+if (cityArray.length > 0) {
+    renderData(cityArray[cityArray.length -1])
+} else {
+    renderData("Seattle")
+}
     var currentDate = moment().format("LL");
-    //var cityArray = JSON.parse(localStorage.getItem("cityData")) || [];
+    //var cityList = JSON.parse(localStorage.getItem("cityList")) || [];
 
     //on click of search button show weather info 
     $("#searchBtn").on("click", function () {
@@ -86,24 +87,41 @@ $(document).ready(function () {
             }
         });
     }
+    function renderSearchHistory() {
+        $("#cityList").empty();
 
-    function cityList() {
-        var highscores = JSON.parse(window.localStorage.getItem("cityList")) || [];
-        highscores.forEach(function (score) {
-            // create li tag for each high score
-            var liTag = document.createElement("li");
-            liTag.textContent = score.initials + " - " + score.score;
-            // display on page
-            var olEl = document.getElementById("scoreList");
-            olEl.appendChild(liTag);
-        });
+        for (let i = 0; i < cityList.length; i++) {
+            var newLi = $("<li>");
+
+            newLi.addClass("list-group-item");
+            newLi.attr("id", ("city" + [i]))
+            newLi.text(cityList[i]);
+
+            $("#cityList").append(newLi)
+            $("#city" + [i]).on("click", function (event) {
+
+                var citySearch = (cityList[i])
+                renderData(citySearch)
+            });
+        }
     }
 
-    showFinalScore();
+    //Event listener active
+    $("#searchBtn").on("click", function (event) {
 
-    function clearHighScores() {
-        window.localStorage.removeItem("highScoreList");
-        window.location.reload();
-    }    // either get scores from localstorage or set to empty array
+        event.preventDefault();
 
-});
+        var citySearch = $("#citySearch").val().trim();
+        if (cityList.indexOf(citySearch) === -1) {
+            cityList.push(citySearch)
+        }
+        if (cityList.length > 5) {
+            cityList.shift();
+        }
+
+        localStorage.setItem("cityList", JSON.stringify(cityList))
+        renderSearchHistory();
+        renderData(citySearch);
+
+    });
+})
